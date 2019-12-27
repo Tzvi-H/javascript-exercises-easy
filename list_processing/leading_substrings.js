@@ -1,15 +1,22 @@
-// Write a function that takes a string argument, and returns a list of all substrings that start from the beginning of the string, ordered from shortest to longest.
-
-// Examples:
-
-// substringsAtStart('abc');      // ["a", "ab", "abc"]
-// substringsAtStart('a');        // ["a"]
-// substringsAtStart('xyzzy');    // ["x", "xy", "xyz", "xyzz", "xyzzy"]
+/*
+problem
+  - Given a string, return an array of all substrings starting from the first character
+example
+  - input  = 'abc'
+  - output = ["a", "ab", "abc"]
+data structure
+  - an array
+algorithm
+  - split the string into an array of characters
+  - map the array, 
+    - for each element's index
+    - return a new string from the input string index 0 until the current index
+*/
 
 function substringsAtStart(string) {
   return string
-    .split('')
-    .map((_, idx) => string.slice(0, idx + 1));
+         .split('')
+         .map((_, index) => string.slice(0, index + 1));
 }
 
 console.log(substringsAtStart('abc'));      // ["a", "ab", "abc"]
