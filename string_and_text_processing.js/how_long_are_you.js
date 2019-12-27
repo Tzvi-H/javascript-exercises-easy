@@ -1,32 +1,25 @@
 /*
 problem
-  - given a string,
-  - return an array of all the words in the string
-  - with the word's length
-  - if no input or input is an empty string, return an empty array
-examples
-  cow sheep chicken => ["cow 3", "sheep 5", "chicken 7"]
-  It ain't easy, is it? => ["It 2", "ain't 5", "easy, 5", "is 2", "it? 3"]
-  '' => []
-  (no input) => []
-data structre
-  - array
+  - given a string of words, return an array where each element is a word from the string concatenated
+    with the word's length
+  example
+  - 'cow sheep chicken' =>  ["cow 3", "sheep 5", "chicken 7"]
+data structure
+  - an array
 algorithm
-  - if no input or input is an empty string
-    (check for no input by checking if undefined)
-    - return an empty array
-  - split the input into an array space seperated words
-  - map the array, for each word
-    - return the word's length appended to the word
-  - return the mapped array
+  - split the string into an array of words
+  - map the array, for each word, do the following
+    - return a string containing the word with its length
+  - join the array back into a string words
 */
 
 function wordLengths(string) {
-  if (['', undefined].includes(string)) return [];
+  if (arguments.length === 0 || string.length === 0) return [];
 
   return string
          .split(' ')
-         .map(word => `${word} ${word.length}`);
+         .map(word => `${word} ${word.length}`)
+         .join(' '); 
 }
 
 console.log(wordLengths('cow sheep chicken'));

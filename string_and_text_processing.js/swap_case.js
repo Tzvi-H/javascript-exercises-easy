@@ -1,36 +1,24 @@
 /*
 problem
-  - given a string,
-  - return a new string with all the character cases swapped
+  - given a string, return a string where all the cases are swapped 
+    (uppercase becomes lowercase and lowercase becomes uppercase),
 example
-  input - 'CamelCase'
-  output - 'cAMELcASE'
-
-  input - 'Tonight on XYZ-TV'
-  output - 'tONIGHT ON xyz-tv'
+  - 'Tonight on XYZ-TV' => "tONIGHT ON xyz-tv"
 data structure
+  - an array
 algorithm
-  - split string into array of characters
-  - map the array, for each character
-    - if char === uppercase char
-      - return char lowercase
-    - else (char === uppercase char)
-      - return char uppercase
-  - join array into string with nothing in between
+  - split the string into an array of characters
+  - map the array, for each char, do the following
+    - if char is uppercase => return the char lowercase
+    - if char is uppercase => return the char uppercase
+  - join the array into a string with no spaces in between the letters
 */
 
 function swapCase(string) {
-  let chars = string.split('');
-  let charsSwapped = chars.map(char => {
-    if (/[a-z]/.test(char)) {
-      return char.toUpperCase();
-    } else if (/[A-Z]/.test(char)) {
-      return char.toLowerCase();
-    } else {
-      return char;
-    }
-  });
-  return charsSwapped.join('');
+  return string
+         .split('')
+         .map(chr => /[A-Z]/.test(chr) ? chr.toLowerCase() : chr.toUpperCase())
+         .join('');
 }
 
 console.log(swapCase('CamelCase'));              // "cAMELcASE"
